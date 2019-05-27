@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SnippetFile1</Title>
+      <Author>yzn</Author>
+      <Description>校验异常</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sunve</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>errKey</ID>
+          <ToolTip>errKey</ToolTip>
+          <Default>errKey</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>obj</ID>
+          <ToolTip>obj</ToolTip>
+          <Default>obj</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[if ($obj$ == null) {
+                throw new ValidationException(_localizer["$errKey$"].Value);
+            }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Keywords>
+        <Keyword>sunapps</Keyword>
+      </Keywords>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SnippetFile1</Title>
+      <Author>yzn</Author>
+      <Description>Part的Application服务类代码提示</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sunapps</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <ToolTip>服务名称（不含后缀)</ToolTip>
+          <Default>Part</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ends</ID>
+          <ToolTip>ends</ToolTip>
+          <Default>ends</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>pname</ID>
+          <ToolTip>pname</ToolTip>
+          <Default>pname</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using Abp.Domain.Repositories;
+using Abp.UI;
+using AutoMapper;
+using Microsoft.Extensions.Localization;
+using Sunlight.Abstractions;
+using Sunlight.Dcs.Parts.Application.$name$s.Dto;
+using Sunlight.Dcs.Parts.Domain.Models;
+using Sunlight.Dcs.Parts.Domain.Parts;
+
+namespace Sunlight.Dcs.Parts.Application.$name$s {
+
+    internal class $name$Service : PartsAppServiceBase, I$name$Service {
+        private readonly IMapper _mapper;
+        private readonly IStringLocalizer<$name$Service> _localizer;
+        private readonly IRepository<$name$, Guid> _$pname$Repository;
+        private readonly I$name$Manager _$pname$Manager;
+
+        public PartService(IRepository<$name$, Guid> partRepository,
+            IMapper mapper,
+            IStringLocalizer<$name$Service> localizer,
+            I$name$Manager partManager
+            ) {
+            _$pname$Repository = $pname$Repository;
+            _mapper = mapper;
+            _localizer = localizer;
+            _$pname$Manager = $pname$Manager;
+        }
+
+        public void Insert$name$(Post$name$Input insertPut) {
+           
+        }
+
+        public void UpdatePart(Put$name$Input updatePut) {
+            
+        }
+    }
+}
+$ends$
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

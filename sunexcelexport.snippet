@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SnippetFile1</Title>
+      <Author>
+      </Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sunexcelexport</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp" Delimiter="$"><![CDATA[/// <summary>
+        /// 导出整车批售订单
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("export")]
+        public async Task<IActionResult> Export([FromQuery]GetKeyAccountVehicleSalesOrderInput queryRequest, [FromServices]IFilesService filesService) {
+            var result = _keyAccountVehicleSalesOrderService.Export(queryRequest);
+            var fileName = _localizer["导出整车批售订单.xlsx"].Value;
+            return Ok(ResponseBody.From<string>(await filesService.SaveToExcelAsync(result, fileName)));
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
