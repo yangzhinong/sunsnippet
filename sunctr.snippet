@@ -13,6 +13,14 @@
       <Shortcut>sunctr</Shortcut>
     </Header>
     <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.AspNetCore.Mvc</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.Extensions.Localization</Namespace>
+        </Import>
+      </Imports>
       <Declarations>
         <Literal Editable="true">
           <ID>name</ID>
@@ -29,14 +37,7 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using Sunlight.Dcs.Parts.Application.Parts;
-using Sunlight.Dcs.Parts.Application.Parts.Dto;
-
-namespace Sunlight.Dcs.Parts.WebHost.Controllers {
-
-    [ApiVersion("1.0")]
+      <Code Language="csharp" Delimiter="$"><![CDATA[    [ApiVersion("1.0")]
     [Route("/api/v{version:apiVersion}/$pname$s")]
     public class $name$Controller : PartsControllerBase {
         private readonly IStringLocalizer<$name$Controller> _localizer;
@@ -71,7 +72,6 @@ namespace Sunlight.Dcs.Parts.WebHost.Controllers {
             return Ok(new { Message = _localizer["修改成功"].Value });
         }
     }
-}
 ]]></Code>
     </Snippet>
   </CodeSnippet>
