@@ -16,18 +16,31 @@
       <Shortcut>sunapps</Shortcut>
     </Header>
     <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.ComponentModel.DataAnnotations</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Abp.Domain.Repositories</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Abp.UI</Namespace>
+        </Import>
+        <Import>
+          <Namespace>AutoMapper</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.Extensions.Localization</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Sunlight.Abstractions</Namespace>
+        </Import>
+      </Imports>
       <Declarations>
         <Literal Editable="true">
           <ID>name</ID>
           <ToolTip>服务名称（不含后缀)</ToolTip>
           <Default>Part</Default>
-          <Function>
-          </Function>
-        </Literal>
-        <Literal Editable="true">
-          <ID>ends</ID>
-          <ToolTip>ends</ToolTip>
-          <Default>ends</Default>
           <Function>
           </Function>
         </Literal>
@@ -39,19 +52,7 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using Abp.Domain.Repositories;
-using Abp.UI;
-using AutoMapper;
-using Microsoft.Extensions.Localization;
-using Sunlight.Abstractions;
-using Sunlight.Dcs.Parts.Application.$name$s.Dto;
-using Sunlight.Dcs.Parts.Domain.Models;
-using Sunlight.Dcs.Parts.Domain.Parts;
-
-namespace Sunlight.Dcs.Parts.Application.$name$s {
+      <Code Language="csharp" Delimiter="$"><![CDATA[
 
     internal class $name$Service : PartsAppServiceBase, I$name$Service {
         private readonly IMapper _mapper;
@@ -59,7 +60,7 @@ namespace Sunlight.Dcs.Parts.Application.$name$s {
         private readonly IRepository<$name$, Guid> _$pname$Repository;
         private readonly I$name$Manager _$pname$Manager;
 
-        public PartService(IRepository<$name$, Guid> partRepository,
+        public $name$Service(IRepository<$name$, Guid> $pname$Repository,
             IMapper mapper,
             IStringLocalizer<$name$Service> localizer,
             I$name$Manager partManager
@@ -78,8 +79,6 @@ namespace Sunlight.Dcs.Parts.Application.$name$s {
             
         }
     }
-}
-$ends$
 ]]></Code>
     </Snippet>
   </CodeSnippet>
