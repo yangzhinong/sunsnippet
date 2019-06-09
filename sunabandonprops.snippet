@@ -14,8 +14,16 @@
       <Shortcut>sunabandonprops</Shortcut>
     </Header>
     <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.ComponentModel.DataAnnotations</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Sunlight.Abstractions</Namespace>
+        </Import>
+      </Imports>
       <Code Language="csharp" Delimiter="$"><![CDATA[//作废人
-        public Guid? AbandonerId { get; set; }
+        public Guid? AbandonerId { get; set;  }
 
         //作废人姓名
         [MaxLength(EntityDefault.FieldLength_100)]
