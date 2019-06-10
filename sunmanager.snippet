@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SnippetFile1</Title>
+      <Author>
+      </Author>
+      <Description>manager</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sunmanager</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Abp.Domain.Repositories</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.Extensions.Localization</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <ToolTip>name</ToolTip>
+          <Default>name</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[internal class $name$Manager : PartsDomainServiceBase, I$name$Manager {
+        private readonly IStringLocalizer<$name$Manager> _localizer;
+        private readonly IRepository<$name$, Guid> _$name$Repositor;
+
+        public $name$Manager(IRepository<$name$, Guid> $name$Repositor,
+            IStringLocalizer<$name$Manager> localizer) {
+            _$name$ = $name$Repositor;
+            _localizer = localizer;
+        }
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

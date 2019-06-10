@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SnippetFile1</Title>
+      <Author>
+      </Author>
+      <Description>Dto options property </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sunoption</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp" Delimiter="$"><![CDATA[[JsonProperty(ItemConverterType = typeof(StringEnumConverter), ItemConverterParameters = new object[] { true })]
+public IReadOnlyCollection<DataOptions> Options {
+            get {
+                if (Status == PartInventoryStatus.新增) {
+                    return new[]{
+                        DataOptions.Update,
+                        DataOptions.Enter,
+                        DataOptions.Abandon
+                    };
+                } else if (Status == PartInventoryStatus.结果录入) {
+                    return new[]{
+                        DataOptions.Approver,
+                        DataOptions.Abandon
+                    };
+                } else if (Status == PartInventoryStatus.审核驳回) {
+                    return new[]{
+                        DataOptions.Enter,
+                        DataOptions.Abandon
+                    };
+                } else
+                    return Array.Empty<DataOptions>();
+            }
+        }
+
+        public enum DataOptions {
+            Update,
+            Enter,
+            Approver,
+            Abandon
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
