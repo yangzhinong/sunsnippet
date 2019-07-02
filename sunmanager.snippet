@@ -30,8 +30,15 @@
           <Function>
           </Function>
         </Literal>
+        <Literal Editable="true">
+          <ID>PartsDomainServiceBase</ID>
+          <ToolTip>PartsDomainServiceBase</ToolTip>
+          <Default>PartsDomainServiceBase</Default>
+          <Function>
+          </Function>
+        </Literal>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[internal class $name$Manager : PartsDomainServiceBase, I$name$Manager {
+      <Code Language="csharp" Delimiter="$"><![CDATA[internal class $name$Manager : $PartsDomainServiceBase$, I$name$Manager {
         private readonly IStringLocalizer<$name$Manager> _localizer;
         private readonly IRepository<$name$, Guid> _$name$Repositor;
 
