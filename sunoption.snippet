@@ -14,6 +14,16 @@
       <Shortcut>sunoption</Shortcut>
     </Header>
     <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Newtonsoft.Json</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Newtonsoft.Json.Converters</Namespace>
+        </Import>
+      </Imports>
+      <References>
+      </References>
       <Code Language="csharp" Delimiter="$"><![CDATA[[JsonProperty(ItemConverterType = typeof(StringEnumConverter), ItemConverterParameters = new object[] { true })]
 public IReadOnlyCollection<DataOptions> Options {
             get {
