@@ -40,21 +40,26 @@
         <Literal Editable="true">
           <ID>name</ID>
           <ToolTip>服务名称（不含后缀)</ToolTip>
-          <Default>Part</Default>
+          <Default>Name</Default>
           <Function>
           </Function>
         </Literal>
         <Literal Editable="true">
           <ID>pname</ID>
-          <ToolTip>pname</ToolTip>
-          <Default>pname</Default>
+          <ToolTip>小写开头名称</ToolTip>
+          <Default>name</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>PartsAppServiceBase</ID>
+          <ToolTip>基类名称</ToolTip>
+          <Default>PartsAppServiceBase</Default>
           <Function>
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp" Delimiter="$"><![CDATA[
-
-    internal class $name$Service : PartsAppServiceBase, I$name$Service {
+      <Code Language="csharp" Delimiter="$"><![CDATA[    internal class $name$Service : $PartsAppServiceBase$, I$name$Service {
         private readonly IMapper _mapper;
         private readonly IStringLocalizer<$name$Service> _localizer;
         private readonly IRepository<$name$, Guid> _$pname$Repository;
@@ -63,7 +68,7 @@
         public $name$Service(IRepository<$name$, Guid> $pname$Repository,
             IMapper mapper,
             IStringLocalizer<$name$Service> localizer,
-            I$name$Manager partManager
+            I$name$Manager $pname$Manager
             ) {
             _$pname$Repository = $pname$Repository;
             _mapper = mapper;
