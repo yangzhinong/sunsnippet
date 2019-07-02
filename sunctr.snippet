@@ -23,28 +23,35 @@
       </Imports>
       <Declarations>
         <Literal Editable="true">
-          <ID>name</ID>
-          <ToolTip>name</ToolTip>
+          <ID>pname</ID>
+          <ToolTip>小写开头的名称</ToolTip>
           <Default>name</Default>
           <Function>
           </Function>
         </Literal>
         <Literal Editable="true">
-          <ID>pname</ID>
-          <ToolTip>pname</ToolTip>
-          <Default>pname</Default>
+          <ID>name</ID>
+          <ToolTip>大写开头的名称</ToolTip>
+          <Default>Name</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>PartsControllerBase</ID>
+          <ToolTip>基类名称</ToolTip>
+          <Default>PartsControllerBase</Default>
           <Function>
           </Function>
         </Literal>
       </Declarations>
       <Code Language="csharp" Delimiter="$"><![CDATA[    [ApiVersion("1.0")]
     [Route("/api/v{version:apiVersion}/$pname$s")]
-    public class $name$Controller : PartsControllerBase {
+    public class $name$Controller : $PartsControllerBase$ {
         private readonly IStringLocalizer<$name$Controller> _localizer;
         private readonly IPartService _$pname$Service;
 
         public $name$Controller(IStringLocalizer<$name$Controller> localizer,
-                              I$name$Service partService) {
+                              I$name$Service $pname$Service) {
             _localizer = localizer;
             _$pname$Service = $pname$Service;
         }
