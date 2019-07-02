@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SnippetFile1</Title>
+      <Author>
+      </Author>
+      <Description>通用查询</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>sunqueryfun</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Sunlight.Domain</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Sunlight.Linq.Extensions</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp" Delimiter="$"><![CDATA[ public IQueryable<RetailContract> Query(GetRetailContractInput input) {
+            var company = _companyManager.GetCompany(SdtSession.TenantId);
+            var result = _retailContract.GetAll().WhereIf(company.Type == CompanyType.经销商, r => r.DealerId == company.Id)
+                .WhereIf(!string.IsNullOrEmpty(input.CustomerName), r => r.CustomerName.Contains(input.CustomerName))
+                .WhereIf(!string.IsNullOrEmpty(input.CellPhoneNumber), r => r.CellPhoneNumber.Contains(input.CellPhoneNumber))
+                .WhereIf(!string.IsNullOrEmpty(input.SaleAdviserName), r => r.SaleAdviserName.Contains(input.SaleAdviserName))
+                .WhereIf(!string.IsNullOrEmpty(input.Vin), r => r.Vin.Contains(input.Vin))
+                .WhereIf(input.Status.HasValue, r => r.Status == input.Status)
+                .WhereIf(input.PaymentStatus.HasValue, r => r.PaymentStatus == input.PaymentStatus)
+                .WhereIf(input.BeginCreateTime.HasValue, r => r.CreateTime >= input.BeginCreateTime)
+                .WhereIf(input.EndCreateTime.HasValue, r => r.CreateTime <= input.EndCreateTime);
+            return result;
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
