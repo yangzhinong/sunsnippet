@@ -78,6 +78,39 @@
             _$pname$Service.Update$name$(input);
             return Ok(new { Message = _localizer["修改成功"].Value });
         }
+       
+       [HttpGet]
+        public IActionResult Get$name$s([FromQuery]Get$name$sInput input, [FromQuery]PageRequest page) {
+            if (string.IsNullOrWhiteSpace(page.SortField)) {
+                page.SortField = nameof(Get$name$Output.Code);
+                page.IsDesc = false;
+            }
+            return Ok(ResponseBody.From(_service.Get$name$s(input, page)));
+        }
+
+        /// <summary>
+        /// 详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public IActionResult Get$name$ById(Guid id) {
+            return Ok(ResponseBody.From(_service.Get$name$ById(id)));
+        }
+
+        [HttpGet("export")]
+        public async Task<IActionResult> Export$name$sAsync([FromServices]IFilesService filesService, [FromQuery]Get$name$sInput input) {
+            var $pname$s = await _service.Export$name$sAsync(input);
+            const string fileName = "****.xlsx";
+            return Ok(ResponseBody.From<string>(filesService.SaveToExcel($pname$s, fileName)));
+        }
+
+        [HttpPut("{id}/abandon")]
+        public IActionResult Abandon$name$(Guid id, [FromBody] RowVersionBody input)
+        {
+            _service.AbandonRepairMode(id, input);
+            return Ok(new { message = "成功" });
+        }
     }
 ]]></Code>
     </Snippet>
