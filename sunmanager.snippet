@@ -40,9 +40,9 @@
       </Declarations>
       <Code Language="csharp" Delimiter="$"><![CDATA[internal class $name$Manager : $PartsDomainServiceBase$, I$name$Manager {
         private readonly IStringLocalizer<$name$Manager> _localizer;
-        private readonly IRepository<$name$, Guid> _$name$Repositor;
+        private readonly IRepository<$name$, Guid> _$name$Repository;
 
-        public $name$Manager(IRepository<$name$, Guid> $name$Repositor,
+        public $name$Manager(IRepository<$name$, Guid> $name$Repository,
             IStringLocalizer<$name$Manager> localizer) {
             _$name$ = $name$Repositor;
             _localizer = localizer;
