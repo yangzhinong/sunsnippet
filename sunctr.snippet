@@ -64,7 +64,7 @@
         [HttpPost]
         public IActionResult Insert$name$([FromBody] Post$name$Input input) {
             _$pname$Service.Insert$name$(input);
-            return Ok(new { message = L("Success") });
+            return Ok(new { message = _localizer["成功"].Value });
         }
 
         /// <summary>
@@ -76,7 +76,7 @@
         [HttpPut()]
         public IActionResult Update$name$([FromBody] Put$name$Input input) {
             _$pname$Service.Update$name$(input);
-            return Ok(new { message = L("Success") });
+            return Ok(new { message = _localizer["成功"].Value });
         }
        
        [HttpGet]
@@ -101,7 +101,7 @@
         [HttpGet("export")]
         public async Task<IActionResult> Export$name$sAsync([FromServices]IFilesService filesService, [FromQuery]Get$name$sInput input) {
             var $pname$s = await _$pname$Service.Export$name$sAsync(input);
-            var fileName = $"{L("Export$name$FileName")}.xlsx";
+            var fileName = _localizer["导出信息{0}", ".xlsx"].Value;
             return Ok(ResponseBody.From<string>(filesService.SaveToExcel($pname$s, fileName)));
         }
 
@@ -109,7 +109,7 @@
         public IActionResult Abandon$name$(Guid id, [FromBody] RowVersionBody input)
         {
             _$pname$Service.Abandon(id, input);
-            return Ok(new { message = L("Success") });
+            return Ok(new { message = _localizer["成功"].Value });
         }
     }
 ]]></Code>
