@@ -68,21 +68,36 @@
         public $name$Service(IRepository<$name$, Guid> $pname$Repository,
             IMapper mapper,
             IStringLocalizer<$name$Service> localizer,
-            I$name$Manager $pname$Manager
-            ) {
+            I$name$Manager $pname$Manager) {
             _$pname$Repository = $pname$Repository;
             _mapper = mapper;
             _localizer = localizer;
+
             _$pname$Manager = $pname$Manager;
         }
 
-        public void Insert$name$(Post$name$Input insertPut) {
+        public void Insert$name$(Post$name$Input input) {
            
         }
 
-        public void UpdatePart(Put$name$Input updatePut) {
+        public void Update$name$(Guid id, Put$name$Input input) {
             
         }
+
+        public async Task<Page<Get$name$Output>> Get$name$s(Get$name$Input input,PageRequest page) {
+            var query = Query(input);
+            var count = await query.CountAsync();
+            var result = await query.PageAndOrderBy(page).ToListAsync();
+            return new Page<Get$name$Output>(page, count, _mapper.Map<List<Get$name$Output>>(result));
+        }
+
+        public IQueryable<$name$> Query(Get$name$Input input) {
+            var result = _$pname$Repository.GetAll()
+                .WhereIf(!string.IsNullOrEmpty(input.Code), r => r.Code.Contains(input.Code))
+                .WhereIf(input.Status != null, r => r.Status == input.Status);
+            return result;
+        }
+
     }
 ]]></Code>
     </Snippet>
